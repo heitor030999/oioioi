@@ -22,23 +22,41 @@ window.onload = () => {
 function login() {
   const email = document.getElementById('email').value.trim();
   const password = document.getElementById('password').value;
-  if (!email || !password) return alert('Preencha email e senha.');
+  if (!email || !password) {
+    alert('Preencha email e senha.');
+    return;
+  }
 
+  console.log('Tentando login com', email);
   auth.signInWithEmailAndPassword(email, password)
     .then(() => {
+      console.log('Login bem-sucedido');
       window.location.href = 'upload.html';
     })
-    .catch(e => alert('Erro ao entrar: ' + e.message));
+    .catch(e => {
+      console.error('Erro no login:', e);
+      alert('Erro ao entrar: ' + e.message);
+    });
 }
 
 function register() {
   const email = document.getElementById('email').value.trim();
   const password = document.getElementById('password').value;
-  if (!email || !password) return alert('Preencha email e senha.');
+  if (!email || !password) {
+    alert('Preencha email e senha.');
+    return;
+  }
 
+  console.log('Tentando cadastrar com', email);
   auth.createUserWithEmailAndPassword(email, password)
-    .then(() => alert('Cadastro realizado! Faça login.'))
-    .catch(e => alert('Erro no cadastro: ' + e.message));
+    .then(() => {
+      console.log('Cadastro bem-sucedido');
+      alert('Cadastro realizado! Faça login.');
+    })
+    .catch(e => {
+      console.error('Erro no cadastro:', e);
+      alert('Erro no cadastro: ' + e.message);
+    });
 }
 
 function logout() {
