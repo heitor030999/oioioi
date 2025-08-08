@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Upload de Arquivos - Nuvem Pessoal</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js"></script>
+  <script src="firebase-init.js"></script>
+  <script src="auth.js" defer></script>
+  <script src="upload.js" defer></script>
+</head>
+<body>
+  <button id="logoutBtn">Sair</button>
+  <h1>Upload de Arquivos</h1>
+  <input type="file" id="fileInput" />
+  <button id="uploadBtn">Enviar</button>
+
+  <h2>Seus arquivos:</h2>
+  <ul id="fileList"></ul>
+</body>
+</html>
